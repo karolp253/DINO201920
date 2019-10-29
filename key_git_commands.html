@@ -1,59 +1,228 @@
 <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Kluczowe komendy programu **Git**</title>
-        
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
-        
-        <style>
-.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
-</style>
-        <style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
-            }
-        </style>
-        
-        
-    </head>
-    <body class="vscode-light">
-        <h1 id="kluczowe-komendy-programu-git">Kluczowe komendy programu <strong>Git</strong></h1>
-<h3 id="git-config---global-username-%22%22"><code>git config --global user.name &quot;&quot;</code></h3>
-<p>Komenda zmieniająca naszą <strong>lokalną</strong> nazwę w aplikacji Git. Nazwa ta służy do podpisywania commitów wysyłanych do bazy głównej, nie jest w żaden sposób powiązana z naszą nazwą na przykład na GitHubie. Trzeba zaznaczyć, że zmiana nazwy nie spowoduje zmiany w poprzednich komitach, które zostały wysłane na serwer główny, a jedynie wpłynie na każde przyszłe commity.
-Parametry:</p>
-<ul>
-<li>--global: ustawia nazwę dla każdego repozytorium, nad którym pracujemy. Bez tego parametru, zmienimy jedynie nazwę w repozytorium, w którym się znajdujemy</li>
-<li>&quot;&quot; - w cudzysłowiu podajemy swoją nazwę
-Dodatkowo możemy jeszcze powiązać adres e-mail z gitem zastępując parametr <code>user.name</code> parametrem <code>user.email</code></li>
-</ul>
-<p><strong>Źródło: <a href="https://help.github.com/en/github/using-git/setting-your-username-in-git">https://help.github.com/en/github/using-git/setting-your-username-in-git</a></strong></p>
-<h3 id="git-reset-head"><code>git reset HEAD</code></h3>
-<h3 id="gitk--all"><code>gitk -all</code></h3>
-<h3 id="git-branch---merged"><code>git branch --merged</code></h3>
-<h3 id="git-branch-%22branch%22-%22commit-hash%22"><code>git branch &quot;branch&quot; &quot;commit hash&quot;</code></h3>
-<h3 id="git-pull-%22remote%22-%22branch%22"><code>git pull &quot;remote&quot; &quot;branch&quot;</code></h3>
-<h3 id="git-config---global-useremail-%22%22"><code>git config --global user.email &quot;&quot;</code></h3>
-<h3 id="git-diff---staged"><code>git diff --staged</code></h3>
-<h3 id="git-checkout--b-%22branch%22"><code>git checkout -b &quot;branch&quot;</code></h3>
-<h3 id="git-log---graph---all"><code>git log --graph --all</code></h3>
-<h3 id="git-branch--d-%22branch%22"><code>git branch -d &quot;branch&quot;</code></h3>
-<h3 id="git-fetch-%22remote%22-%22branch%22"><code>git fetch &quot;remote&quot; &quot;branch&quot;</code></h3>
-<h3 id="git-config---global-colorui-true"><code>git config --global color.ui true</code></h3>
-<h3 id="git-commit-%22filename%22"><code>git commit &quot;filename&quot;</code></h3>
-<h3 id="git-branch--v"><code>git branch -v</code></h3>
-<h3 id="git-push-%22remote%22-%22branch%22"><code>git push &quot;remote&quot; &quot;branch&quot;</code></h3>
-<h3 id="git-log-%22branch%22---not-%22branch%22"><code>git log &quot;branch&quot; --not &quot;branch&quot;</code></h3>
-<h3 id="git-bisect-start-bad-good-reset"><code>git bisect (start, bad, good, reset)</code></h3>
-<h3 id="git-commit--a--m-%22%22"><code>git commit -a -m &quot;&quot;</code></h3>
-<h3 id="git-add"><code>git add .</code></h3>
-<h3 id="git-checkout-%22branch%22"><code>git checkout &quot;branch&quot;</code></h3>
-<h3 id="git-remote-add-%22remotename%22-%22git-url%22"><code>git remote add &quot;remote_name&quot; &quot;git url&quot;</code></h3>
-<h3 id="git-blame--c-%22filename%22"><code>git blame -C &quot;filename&quot;</code></h3>
-<h3 id="git-branch-%22name%22"><code>git branch &quot;name&quot;</code></h3>
+<html>
 
-    </body>
-    </html>
+<head>
+    <meta charset="UTF-8">
+    <title>Kluczowe komendy programu **Git**</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+    <style>
+        .task-list-item { 
+            list-style-type: none; 
+        } 
+        .task-list-item-checkbox { 
+            margin-left: -20px;
+            vertical-align: middle; 
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .command {
+            border-bottom: 1px solid lightgrey;
+            margin-bottom: 64px;
+        }
+    </style>
+</head>
+
+<body class="vscode-light">
+
+    <h1> Kluczowe komendy programu <strong>Git</strong> </h1>
+    <section class="command">
+        <h3> <code>git config --global user.name &quot;&quot;</code> </h3>
+        <p>
+            Komenda zmieniająca naszą <strong>lokalną</strong> nazwę w aplikacji Git. Nazwa ta służy do podpisywania commitów wysyłanych do bazy głównej, nie jest w żaden sposób powiązana z naszą nazwą na przykład na GitHubie. Trzeba zaznaczyć, że zmiana nazwy nie spowoduje zmiany w poprzednich komitach, które zostały wysłane na serwer główny, a jedynie wpłynie na każde przyszłe commity. Parametry:
+            <ul>
+                <li>
+                    --global: ustawia nazwę dla każdego repozytorium, nad którym pracujemy. Bez tego parametru, zmienimy jedynie nazwę w repozytorium, w którym się znajdujemy
+                </li>
+                <li>
+                    &quot;&quot; - w cudzysłowiu podajemy swoją nazwę
+                    Dodatkowo możemy jeszcze powiązać adres e-mail z gitem zastępując parametr <code>user.name</code> parametrem <code>user.email</code>
+                </li>
+            </ul>
+        </p>
+    </section>
+
+    <section class="command">
+        <h3> <code>git reset HEAD</code> </h3>
+        <p>
+            <!-- describe here -->
+        </p>
+    </section>
+
+    <section class="command">
+        <h3><code>gitk -all</code></h3>
+        <p>
+            <!-- describe here -->
+        </p>
+    </section>
+
+    <section class="command">
+        <h3><code>git branch --merged</code></h3>
+        <p>
+            <!-- describe here -->
+        </p>
+    </section>
+
+    <section class="command">
+        <h3><code>git branch &quot;branch&quot; &quot;commit hash&quot;</code></h3>
+        <p>
+            <!-- describe here -->
+        </p>
+    </section>
+
+    <section class="command">
+        <h3><code>git pull &quot;remote&quot; &quot;branch&quot;</code></h3>
+        <p>
+            <!-- describe here -->
+        </p>
+    </section>
+
+    <section class="command">
+        <h3><code>git config --global user.email &quot;&quot;</code></h3>
+        <p>
+            <!-- describe here -->
+        </p>
+    </section class="command">
+
+    <section class="command">
+        <h3><code>git diff --staged</code></h3>
+        <p>
+            <!-- describe here -->
+        </p>
+    </section class="command">
+
+    <section class="command">
+        <h3><code>git checkout -b &quot;branch&quot;</code></h3>
+        <p>
+            <!-- describe here -->
+        </p>
+    </section class="command">
+
+    <section class="command">
+        <h3><code>git log --graph --all</code></h3>
+        <p>
+            <!-- describe here -->
+        </p>
+    </section>
+
+    <section class="command">
+        <h3><code>git branch -d &quot;branch&quot;</code></h3>
+        <p>
+            <!-- describe here -->
+        </p>
+    </section>
+
+    <section class="command">
+        <h3><code>git fetch &quot;remote&quot; &quot;branch&quot;</code></h3>
+        <p>
+            <!-- describe here -->
+        </p>
+    </section class="command">
+
+    <section class="command">
+        <h3><code>git config --global color.ui true</code></h3>
+        <p>
+            <!-- describe here -->            
+        </p>    
+    </section class="command">
+
+    <section class="command">
+        <h3><code>git commit &quot;filename&quot;</code></h3>
+        <p>
+            <!-- describe here -->            
+        </p>       
+    </section>
+
+    <section class="command">
+        <h3><code>git branch -v</code></h3>
+        <p>
+            <!-- describe here -->
+        </p>
+    </section class="command">
+
+    <section class="command">
+        <h3><code>git push &quot;remote&quot; &quot;branch&quot;</code></h3>
+        <p>
+            <!-- describe here -->
+        </p>
+    </section class="command">
+
+    <section class="command">
+        <h3><code>git log &quot;branch&quot; --not &quot;branch&quot;</code></h3>
+        <p>
+            <!-- describe here -->
+        </p>    
+    </section>
+
+    <section class="command">
+        <h3><code>git bisect (start, bad, good, reset)</code></h3>
+        <p>
+            <!-- describe here -->
+        </p>
+    </section class="command">
+
+    <section class="command">
+        <h3><code>git commit -a -m &quot;&quot;</code></h3>
+        <p>
+            <!-- describe here -->
+        </p>
+    </section>
+
+    <section class="command">
+        <h3><code>git add .</code></h3>
+        <p>
+            <!-- describe here -->
+        </p>    
+    </section>
+
+    <section class="command">
+        <h3><code>git checkout &quot;branch&quot;</code></h3>
+        <p>
+            <!-- describe here -->
+        </p>    
+    </section class="command">
+
+    <section class="command">
+        <h3><code>git remote add &quot;remote_name&quot; &quot;git url&quot;</code></h3>
+        <p>
+            <!-- describe here -->
+        </p>
+    </section class="command">
+
+    <section class="command">
+        <h3><code>git blame -C &quot;filename&quot;</code></h3>
+        <p>
+            <!-- describe here -->
+        </p>    
+    </section class="command">
+
+    <section class="command">
+        <h3><code>git branch &quot;name&quot;</code></h3>
+        <p>
+            Tworzy nową <strong>gałąź</strong> projektu.
+            <ul>
+                <li>
+                    Dodatkowe gałęzie projektu są przydatne do tworzenia różnych wersji produktu, aby
+                    następnie sprawnie pokazać klientowi dwie odmienne wersje i dowiedzieć się która bardziej mu odpowiada.
+                </li>
+                <li>
+                    Przykład użycia: "git branch nazwaNowegoBrancha"
+                </li>
+            </ul>
+            
+            
+        </p>            
+    </section class="command">
+
+
+    <footer>
+        <p>
+            <strong>Źródło: <a href="https://help.github.com/en/github/using-git/setting-your-username-in-git">https://help.github.com/en/github/using-git/setting-your-username-in-git</a></strong>
+        </p>
+    </footer>
+</body>
+
+</html> 
