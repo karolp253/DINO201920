@@ -175,6 +175,25 @@
         <h3><code>git add .</code></h3>
         <p>
             Komenda dodająca wszystkie <strong>zmienione</strong> i <strong>nowopowstałe</strong> pliki z katalogu roboczego i jego podkatalogów pod kontrolę wersji lub do poczekalni (stage). Zignorowane zostaną jedynie pliki zawarte w specjalnym pliku <strong>.gitignore</strong>. Warto również zaznaczyć, że "git add ." <strong>nie</strong> doda zmian dotyczących <strong>usunięć plików</strong>.
+            
+            <li> Przydatne, gdy chcemy utworzyć commita dla dużej liczby zmodyfikowanych lub nowych plików lub gdy pliki, które chcemy dodać do poczekalni (stage) są rozmieszczone w różnych podkatalogach katalogu roboczego.
+            </li>
+            <li> Przykład użycia w przykładowym katalogu root:<br>
+                root<br>
+                |_______plikRoot.txt<br>
+                |_______katalogA<br>
+                |..................|___________plikA.txt<br>
+                |_______katalogB<br>
+                |..................|___________plikB.txt<br>
+                |_______katalogC<br>
+                ...................|___________plikC.txt<br><br>
+                
+                $ git add .<br><br>
+                
+                Efekt: pliki: plikRoot.txt, plikA.txt, plikB.txt, plikC.txt zostały dodane do poczekalni (stage).
+                
+                
+                
         </p>    
     </section>
 
